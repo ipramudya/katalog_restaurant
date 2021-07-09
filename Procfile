@@ -1,1 +1,1 @@
-web: npm run build; npm run build-img
+web: npm run build-img
