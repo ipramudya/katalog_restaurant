@@ -1,0 +1,110 @@
+const path = require('path');
+
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
+const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
+const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
+const ImageminMozjpeg = require('imagemin-mozjpeg');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+
+module.exports = {
+  entry: path.resolve(__dirname, 'src/scripts/index.js'),
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      minSize: 20000,
+      maxSize: 70000,
+      minChunks: 1,
+      maxAsyncRequests: 30,
+      maxInitialRequests: 30,
+      automaticNameDelimiter: '~',
+      enforceSizeThreshold: 50000,
+      cacheGroups: {
+        defaultVendors: {
+          test: /[\\/]node_modules[\\/]/,
+          priority: -10,
+        },
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
+      },
+    },
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: 'style-loader',
+          },
+          {
+            loader: 'css-loader',
+          },
+        ],
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: path.resolve(__dirname, 'src/templates/index.html'),
+      filename: 'index.html',
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, 'src/public/'),
+          to: path.resolve(__dirname, 'dist/'),
+          globOptions: {
+            ignore: ['**/images/**'],
+          },
+        },
+      ],
+    }),
+    new CleanWebpackPlugin(),
+    new WebpackPwaManifest({
+      name: 'Fancy Dish Lite',
+      short_name: 'Fancy Dish',
+      description: 'The Most Popular Restaurants around the World',
+      background_color: '#f0f2f5',
+      theme_color: '#e9dc1e',
+      display: 'standalone',
+      start_url: '/index.html',
+      icons: [
+        {
+          src: path.resolve(__dirname, 'src/public/icons/icon.png'),
+          sizes: [72, 96, 128, 144, 152, 192, 384, 512],
+          purpose: 'any maskable',
+          destination: path.join('icons', 'android'),
+        },
+        {
+          src: path.resolve(__dirname, 'src/public/icons/icon-for-iphone.png'),
+          sizes: [72, 128, 152, 192, 512, 1024],
+          ios: true,
+          purpose: 'any maskable',
+          destination: path.join('icons', 'ios'),
+        },
+      ],
+    }),
+    new ServiceWorkerWebpackPlugin({
+      entry: path.resolve(__dirname, 'src/scripts/sw.js'),
+    }),
+    new ImageminWebpackPlugin({
+      plugins: [
+        ImageminMozjpeg({
+          quality: 50,
+          progressive: true,
+        }),
+      ],
+    }),
+    new BundleAnalyzerPlugin(),
+  ],
+};

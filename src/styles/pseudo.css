@@ -1,0 +1,101 @@
+/* 
+
+    HOVER
+
+*/
+
+.app-bar_navigation > ul > li:nth-child(1):hover,
+.app-bar_navigation > ul > li:nth-child(2):hover,
+.app-bar_navigation > ul > li:nth-child(3):hover,
+.app-bar_navigation > ul > li:nth-child(4):hover {
+  background-color: var(--bg-greyish);
+  border-radius: 20px;
+}
+
+.app-bar_menu:hover {
+  background-color: var(--bg-greyish);
+  border-radius: 25%;
+}
+
+#searchSubmit:hover {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.restaurant-item:hover {
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.restaurant-item_content_heading > a:hover {
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+#details:hover ~ .details_label,
+#menus:hover ~ .menus_label,
+#reviews:hover ~ .reviews_label {
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+#details:hover ~ .details_label > i,
+#menus:hover ~ .menus_label > i,
+#reviews:hover ~ .reviews_label > i {
+  color: var(--second-color);
+  font-size: 26px;
+}
+
+.like:hover > i {
+  font-size: 24px;
+}
+
+#addReview > input[type='submit']:hover {
+  background-color: var(--second-color);
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* 
+
+    CHECKED
+
+*/
+
+#details:checked ~ .details_label,
+#menus:checked ~ .menus_label,
+#reviews:checked ~ .reviews_label {
+  border-top: 2px solid var(--second-color);
+  background-color: white;
+  font-weight: 700;
+  letter-spacing: 1.1px;
+}
+
+#details:checked ~ .details_label > i,
+#menus:checked ~ .menus_label > i,
+#reviews:checked ~ .reviews_label > i {
+  color: var(--second-color);
+}
+
+/* 
+
+    FOCUS
+
+*/
+
+#addReviewName:focus,
+#addReviewText:focus {
+  outline: none;
+  border-bottom: 2px solid var(--second-color);
+}
+
+/* 
+
+    PLACEHOLDER
+
+*/
+
+#searchFields::placeholder {
+  text-align: center;
+  font-family: var(--main-font);
+  font-size: 16px;
+}

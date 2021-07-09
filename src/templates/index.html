@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Most Popular Restaurants around the World">
+    <meta name="theme-color" content="#e9dc1e" />
+    <title>Restaurant Apps Starter Project</title>
+    <link rel="icon" href="fancy-dish-icon.svg">
+    <link rel="apple-touch-icon" href="/icons/icon-for-iphone.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baskervville:ital@1&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <script src="https://kit.fontawesome.com/d5c9ada61a.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <a href="#mainContent" class="skip-link" tabindex="0">Menuju ke konten</a>
+    <header class="app-bar" id="appBar">
+        <div class="app-bar_brand">
+            <h1>Fancy Dish</h1>
+        </div>
+        <div class="app-bar_menu">
+            <button id="hamburgerButton" aria-label="hamburger toggler">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+        </div>
+        <nav class="app-bar_navigation" id="navigationBar">
+            <ul>
+                <li><a href="#/" tabindex="0">home</a></li>
+                <li><a href="#/fav" tabindex="0">favorite</a></li>
+                <li><a href="#/search" tabindex="0">search</a></li>
+                <li><a href="https://www.linkedin.com/in/pramudya-indra/" target="_blank" tabindex="0">about us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="banner">
+        <picture>
+            <source media="(max-width: 720px)" srcset="/images/hero-image_4-small.jpg" type="image/jpeg">
+            <img src="/images/hero-image_4-large.jpg" alt="Fancy Dish Banner">
+        </picture>
+        <div class="banner_content">
+            <h2>Welcome to Fancy Dish</h2>
+            <p>Fancy Dish merupakan layanan website penyedia informasi mengenai tempat restoran
+                populer di Dunia</p>
+        </div>
+    </section>
+    <main id="mainContent"></main>
+    <footer>
+        <p>Copyright © 2021 - Fancy Dish</p>
+    </footer>
+</body>
+
+</html>

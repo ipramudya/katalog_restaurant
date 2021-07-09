@@ -1,0 +1,112 @@
+/* TABLET */
+@media screen and (max-width: 1068px) {
+  .restaurants {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .banner_content > p {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .banner {
+    min-height: 300px;
+  }
+
+  .restaurants {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .restaurant {
+    grid-template-columns: 1fr;
+  }
+
+  .restaurant > * {
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+
+  .restaurant_image {
+    grid-row-start: 1;
+  }
+
+  .restaurant_detail {
+    grid-row-start: 2;
+  }
+
+  .restaurant-detail_reviews {
+    grid-row-start: 3;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  main {
+    margin: 25px 50px 25px;
+  }
+
+  .app-bar_menu {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .app-bar.scrolling .app-bar_navigation {
+    top: 54px;
+  }
+
+  .app-bar_menu > button {
+    background-color: transparent;
+    border: none;
+    font-size: 18px;
+    padding: 8px;
+    cursor: pointer;
+  }
+
+  .app-bar_navigation {
+    background-color: white;
+    position: absolute;
+    top: 60px;
+    right: -100%;
+    transition: all 0.5s ease;
+  }
+
+  .app-bar_navigation.open {
+    right: 0;
+  }
+
+  .app-bar_navigation > ul {
+    flex-direction: column;
+  }
+
+  .app-bar_navigation > ul > * {
+    margin-top: 24px;
+  }
+
+  .banner {
+    height: 200px;
+  }
+
+  .banner_content > h2 {
+    font-size: 24px;
+  }
+
+  .banner_content > p {
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .item-container_heading {
+    flex-direction: column;
+  }
+
+  .heading-title {
+    margin-bottom: 20px;
+  }
+
+  .restaurants {
+    grid-template-columns: 1fr;
+  }
+}
