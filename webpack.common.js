@@ -2,7 +2,6 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin');
 const ImageminWebpackPlugin = require('imagemin-webpack-plugin').default;
@@ -69,7 +68,6 @@ module.exports = {
         },
       ],
     }),
-    new CleanWebpackPlugin(),
     new WebpackPwaManifest({
       name: 'Fancy Dish Lite',
       short_name: 'Fancy Dish',
